@@ -29,11 +29,14 @@
         </ul>
         <div class="d-flex">
             <div class="ms-1">
-                <a class="btn btn-primary" href="{{ route('register') }}" role="button">Register</a>
+                <a class="btn btn-secondary" id="btnregister" href="{{ route('register') }}" role="button">Register</a>
             </div>
             <div class="ms-1">
-                <a class="btn btn-primary" href="{{ route('login') }}" role="button">Login</a>
+                <a class="btn btn-secondary" id="btnlogin" href="{{ route('login') }}" role="button">Login</a>
             </div>
+        </div>
+        <div class="ms-1">
+                <a class="btn btn-secondary" id="btnsalir" href="{{ route('logout') }}" role="button">Logout</a>
         </div>
       </div>
       </div>

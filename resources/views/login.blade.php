@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container-fluid" style="width: 100%; height: 700px;">
-        <div class="container mt-4">
+        <div class="container mt-4 w-50">
             <form method="POST" action="{{ route('inicio-session') }}">
                 @csrf
-                <div class="mb-3">
+                <div class="mb-3 ">
                     <label for="emailInput" class="form-label">Email</label>
                     <input type="email" class="form-control" id="emailInput" name="email" required>
                 </div>
