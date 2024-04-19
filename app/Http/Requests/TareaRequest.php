@@ -11,7 +11,7 @@ class TareaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class TareaRequest extends FormRequest
         return [
             'title' => 'required|string|min:3|max:255',
             'description' => 'required|string|min:10|max:255',
-            'status' => 'required|boolean',
+            
         ];
     }
 }

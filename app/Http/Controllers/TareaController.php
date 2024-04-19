@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarea;
+use App\Http\Requests\TareaRequest;
 
 
 class TareaController extends Controller
 {
     public function tareas()
     {
-        $tareas = Tarea::all();
+        $tareas = Tarea::where('status', 0)->get();
         return view('tareas', compact('tareas'));
     }
 
@@ -19,7 +20,7 @@ class TareaController extends Controller
         return view('create');
     }
 
-    public function store(Request $request)
+    public function store(TareaRequest $request)
     {
         auth()->user()->tareas()->create([
             'title' => $request->title,
@@ -34,7 +35,7 @@ class TareaController extends Controller
         return view('edit', compact('tarea'));
     }
 
-    public function update(Request $request, Tarea $tarea)
+    public function update(TareaRequest $request, Tarea $tarea)
     {
         $tarea->update([
             'title' => $request->title,
@@ -48,5 +49,11 @@ class TareaController extends Controller
     {
         $tarea->delete();
         return redirect()->route('tareas');
+    }
+
+    public function terminadas()
+    {
+        $terminadas = Tarea::where('status', 1)->get();
+        return view('terminadas', compact('terminadas'));
     }
 }

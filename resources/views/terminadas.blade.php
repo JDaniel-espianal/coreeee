@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container">
-    <h1 class="m-3">Tareas.</h1>
+    <h1 class="m-3">Tareas terminadas.</h1>
     <div>
         <a href="{{ route('create') }}" class="btn btn-primary m-3">Crear nueva tarea.</a>
-        <a href="{{route('terminadas')}}" class="btn btn-primary m-3">Tareas Terminadas</a>
+        <a href="{{route('tareas')}}" class="btn btn-primary m-3">Volver a tareas</a>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4 m-3">
-        @forelse($tareas as $tarea)
+        @forelse($terminadas as $tarea)
             <div class="col card text-bg-secondary me-4" style="max-width: 18rem;">
                 <div class="card-header"><h5>{{ $tarea->title }}</h5></div>
                 <div class="card-body">
@@ -33,5 +33,5 @@
     </div>
 </div>
         
- 
+
 @endsection

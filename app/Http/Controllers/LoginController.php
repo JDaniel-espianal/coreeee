@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use illuminate\Support\Facades\Auth;
+use App\Http\Requests\LoginRequest;
 
 
 class LoginController extends Controller
 {
-    public function register(Request $request){
+    public function register(LoginRequest $request){
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -44,5 +45,12 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect(route('login'));
+    }
+
+    public function perfil()
+    {
+        $user = auth()->user();
+        $tareas = $user->tareas;
+        return view('perfil', compact('user', 'tareas'));
     }
 }
