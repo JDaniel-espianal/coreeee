@@ -27,9 +27,9 @@
                     <label for="descriptionlabel" class="form-label">Description</label>
                     <input type="text" class="form-control" id="description" name="description" required value="{{ $tarea->description }}">
                 </div>
-                <div class="mb-3 form-check"> 
-                    <input type="checkbox" class="form-check-input" id="statuscheck" name="status" value="{{ $tarea->status }}">
-                    <label class="form-check-label" for="statuslabel">Terminada?</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="statuscheck" name="status" checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Tarea terminada</label>
                 </div>
                 <button type="submit" class="btn btn-primary mb-4">Actualizar</button>
             </form>
